@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelaTehnika - Responzivni Navbar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome ikone za pretragu, korpu i hamburger meni -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVIGACIJSKA TRAKA -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="logo">BelaTehnika</a>
+
+            <!-- Hamburger dugme za mobilne uređaje -->
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Meni">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Glavni meni sa linkovima -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <!-- Dropdown Kategorije -->
+                    <li class="dropdown">
+                        <button class="dropdown-btn" id="categoriesBtn">
+                            Kategorije <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="dropdownMenu">
+                            <a href="#">Frižideri</a>
+                            <a href="#">Zamrzivači</a>
+                            <a href="#">Šporeti</a>
+                            <a href="#">Aspiratori</a>
+                            <a href="#">Mašine za pranje veša</a>
+                            <a href="#">Mašine za sušenje veša</a>
+                            <a href="#">Kombinovane mašine</a>
+                            <a href="#">Klima uređaji</a>
+                            <a href="#">Pokretne klime</a>
+                            <a href="#">Radijatori i konvektori</a>
+                            <a href="#">Bojleri</a>
+                            <a href="#">Mali kućni aparati</a>
+                        </div>
+                    </li>
+
+                    <li><a href="#">Početna</a></li>
+                    <li><a href="#">Top sellers</a></li>
+                    <li><a href="#">Svi proizvodi</a></li>
+                    <li><a href="#" id="cartBtn">Korpa</a></li>
+                    <li><a href="#" id="loginBtn">Prijava</a></li>
+                </ul>
+
+                <!-- Pretraga unutar menija -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Pretraži...">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MODAL ZA KORPU -->
+    <div class="modal" id="cartModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-btn" id="closeCart">&times;</button>
+            <div class="modal-header">
+                <div class="cart-icon-title">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>BelaTehnika</span>
+                </div>
+                <h2>Vaša korpa</h2>
+            </div>
+            <div class="modal-body empty-cart">
+                <p class="empty-title">Korpa je prazna</p>
+                <p class="empty-text">Dodajte proizvode u korpu i oni će se pojaviti ovde.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-full" id="continueShopping">Nastavi kupovinu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ZA PRIJAVU -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-btn" id="closeLogin">&times;</button>
+            <div class="modal-header">
+                <span class="brand-subtext">BelaTehnika</span>
+                <h2>Prijavite se</h2>
+                <p class="sub-heading">Unesite svoje podatke za pristup nalogu.</p>
+            </div>
+            <form class="modal-body form-group">
+                <div class="input-field">
+                    <label for="email">Email adresa</label>
+                    <input type="email" id="email" placeholder="me@primer.com">
+                </div>
+                <div class="input-field">
+                    <label for="password">Lozinka</label>
+                    <input type="password" id="password" placeholder="Unesite lozinku">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full margin-top">Prijava</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

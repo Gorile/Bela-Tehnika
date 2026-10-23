@@ -1,0 +1,360 @@
+/* Reset i osnovni stilovi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+}
+
+/* NAVBAR STILOVI */
+.navbar {
+    background-color: #4a709c;
+    padding: 12px 20px;
+    color: white;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-links a, .dropdown-btn {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 4px;
+    white-space: nowrap;
+}
+
+.nav-links a:hover, .dropdown-btn:hover {
+    opacity: 0.8;
+}
+
+/* DROPDOWN IZBORNIK */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0d131f;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    z-index: 1000;
+    padding: 8px 0;
+    margin-top: 5px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 10px 16px;
+    display: block;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #1a2332;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* PRETRAGA */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    background-color: #2b3d54;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px 8px 32px;
+    color: white;
+    font-size: 13px;
+    outline: none;
+    width: 170px;
+}
+
+.search-box input::placeholder {
+    color: #a0aec0;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #a0aec0;
+    font-size: 12px;
+}
+
+/* MODAL (POP-UP) STILOVI */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 2001;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #718096;
+    cursor: pointer;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-top: 5px;
+}
+
+.brand-subtext {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a709c;
+}
+
+.cart-icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #4a709c;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sub-heading {
+    font-size: 12px;
+    color: #718096;
+    margin-top: 4px;
+}
+
+.empty-cart {
+    border: 1px dashed #e2e8f0;
+    padding: 30px 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.empty-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.empty-text {
+    font-size: 12px;
+    color: #718096;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.input-field label {
+    font-size: 12px;
+    color: #4a5568;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.input-field input {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: #3182ce;
+}
+
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #4a709c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3b5c82;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+/* ==========================================================
+   RESPONZIVNOST (MEDIA QUERIES)
+   ========================================================== */
+
+/* Za ekrane manje od 992px (Tableti i Mobilni uređaji) */
+@media screen and (max-width: 992px) {
+    .hamburger-btn {
+        display: block; /* Prikazuje se hamburger ikonice */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #3b5a7e;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 15px;
+        display: none; /* Sakriveno po podrazumevanim postavakama */
+        box-shadow: 0px 10px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active {
+        display: flex; /* Prikazuje se na klik hamburgera */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a, .dropdown-btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: #0d131f;
+        margin-top: 8px;
+    }
+
+    .search-box {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
