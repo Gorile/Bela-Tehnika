@@ -1,4 +1,5 @@
-/* Reset i osnovni stilovi */
+
+/* RESET I OSNOVNI STILOVI */
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +7,21 @@
     font-family: Arial, sans-serif;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #f4f6f8;
+}
+
+/* GLAVNI SADRZAJ */
+main {
+    flex: 1 0 auto;
+    width: 100%;
 }
 
 /* NAVBAR STILOVI */
@@ -17,6 +31,7 @@ body {
     color: white;
     position: relative;
     z-index: 100;
+    flex-shrink: 0;
 }
 
 .nav-container {
@@ -57,7 +72,8 @@ body {
     gap: 18px;
 }
 
-.nav-links a, .dropdown-btn {
+.nav-links a,
+.dropdown-btn {
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
@@ -71,7 +87,8 @@ body {
     white-space: nowrap;
 }
 
-.nav-links a:hover, .dropdown-btn:hover {
+.nav-links a:hover,
+.dropdown-btn:hover {
     opacity: 0.8;
 }
 
@@ -295,14 +312,125 @@ body {
     margin-top: 10px;
 }
 
-/* ==========================================================
-   RESPONZIVNOST (MEDIA QUERIES)
-   ========================================================== */
+/* ==================================================
+   FOOTER
+   ================================================== */
 
-/* Za ekrane manje od 992px (Tableti i Mobilni uređaji) */
+.footer {
+    width: 100%;
+    background: #1d293d;
+    border-radius: 0 0 4px 4px;
+    padding: 32px 7.8%;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+
+    /* STICKY BOTTOM */
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 38px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-brand .logo {
+    color: #51b5d5;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.footer-brand span {
+    color: #9aacc5;
+    font-size: 11px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #51b5d5;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #3c4a60;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+    background: #51b5d5;
+    border-color: #51b5d5;
+}
+
+.social-links svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+.facebook {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.x-icon {
+    font-size: 16px;
+}
+
+/* ==================================================
+   RESPONZIVNOST
+   ================================================== */
+
 @media screen and (max-width: 992px) {
+
     .hamburger-btn {
-        display: block; /* Prikazuje se hamburger ikonice */
+        display: block;
     }
 
     .nav-menu {
@@ -315,12 +443,12 @@ body {
         align-items: flex-start;
         padding: 20px;
         gap: 15px;
-        display: none; /* Sakriveno po podrazumevanim postavakama */
+        display: none;
         box-shadow: 0px 10px 15px rgba(0,0,0,0.2);
     }
 
     .nav-menu.active {
-        display: flex; /* Prikazuje se na klik hamburgera */
+        display: flex;
     }
 
     .nav-links {
@@ -334,7 +462,8 @@ body {
         width: 100%;
     }
 
-    .nav-links a, .dropdown-btn {
+    .nav-links a,
+    .dropdown-btn {
         width: 100%;
         justify-content: space-between;
         padding: 10px 0;
@@ -356,5 +485,39 @@ body {
 
     .search-box input {
         width: 100%;
+    }
+}
+
+/* FOOTER - TABLET I MOBILNI */
+
+@media (max-width: 700px) {
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
