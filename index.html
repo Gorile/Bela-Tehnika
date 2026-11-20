@@ -83,32 +83,86 @@
         </div>
     </div>
 
-    <!-- MODAL ZA PRIJAVU -->
+    <!-- MODAL ZA PRIJAVU I REGISTRACIJU -->
     <div class="modal" id="loginModal">
         <div class="modal-overlay"></div>
-        <div class="modal-content">
+        <div class="modal-content" id="authModalContent">
             <button class="close-btn" id="closeLogin">&times;</button>
-            <div class="modal-header">
-                <span class="brand-subtext">BelaTehnika</span>
-                <h2>Prijavite se</h2>
-                <p class="sub-heading">Unesite svoje podatke za pristup nalogu.</p>
+
+            <!-- FORMA ZA PRIJAVU -->
+            <div id="loginView">
+                <div class="modal-header auth-header">
+                    <span class="brand-subtext">BelaTehnika</span>
+                    <h2>Prijavite se</h2>
+                    <p class="sub-heading">Unesite svoje podatke za pristup nalogu.</p>
+                </div>
+                <form class="modal-body form-group" id="loginForm">
+                    <div class="input-field">
+                        <label for="email">Email adresa</label>
+                        <input type="email" id="email" placeholder="me@primer.com" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="password">Lozinka</label>
+                        <input type="password" id="password" placeholder="Unesite lozinku" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full margin-top">Prijava</button>
+                </form>
+                <p class="auth-switch">
+                    Nemate nalog? <a href="#" id="switchToRegister">Kreiraj nalog</a>
+                </p>
             </div>
-            <form class="modal-body form-group">
-                <div class="input-field">
-                    <label for="email">Email adresa</label>
-                    <input type="email" id="email" placeholder="me@primer.com">
+
+            <!-- FORMA ZA REGISTRACIJU -->
+            <div id="registerView" class="hidden">
+                <div class="modal-header auth-header">
+                    <span class="brand-subtext">BelaTehnika</span>
+                    <h2>Kreirajte nalog</h2>
+                    <p class="sub-heading">Unesite svoje podatke za registraciju.</p>
                 </div>
-                <div class="input-field">
-                    <label for="password">Lozinka</label>
-                    <input type="password" id="password" placeholder="Unesite lozinku">
-                </div>
-                <button type="submit" class="btn btn-primary btn-full margin-top">Prijava</button>
-            </form>
+                <form class="modal-body form-group" id="registerForm">
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regFirstName">Ime</label>
+                            <input type="text" id="regFirstName" placeholder="Unesite ime" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regLastName">Prezime</label>
+                            <input type="text" id="regLastName" placeholder="Unesite prezime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regUsername">Korisničko ime</label>
+                            <input type="text" id="regUsername" placeholder="Izaberite korisničko ime" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regEmail">Email adresa</label>
+                            <input type="email" id="regEmail" placeholder="ime@primer.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regPassword">Šifra</label>
+                            <input type="password" id="regPassword" placeholder="Unesite šifru" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regConfirmPassword">Potvrdite šifru</label>
+                            <input type="password" id="regConfirmPassword" placeholder="Ponovite šifru" required>
+                        </div>
+                    </div>
+
+                    <p class="form-error" id="registerError"></p>
+
+                    <button type="submit" class="btn btn-primary btn-full margin-top">Kreiraj nalog</button>
+                </form>
+                <p class="auth-switch">
+                    Već imate nalog? <a href="#" id="switchToLogin">Prijavite se</a>
+                </p>
+            </div>
         </div>
     </div>
-
-
- 
 
     <footer class="footer">
         <div class="footer-container">
@@ -125,23 +179,23 @@
               <a href="#">Kontakt</a>
             </nav>
       
-         <div class="social-links">
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-    </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
+                    </svg>
+                </a>
 
-    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook">f</a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook">f</a>
 
-    <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X" class="x-icon">𝕏</a>
-</div>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X" class="x-icon">𝕏</a>
+            </div>
           </div>
       
         </div>
-      </footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>
