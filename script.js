@@ -139,3 +139,145 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.add('fa-bars');
     }
 });
+
+
+/* ==================================================
+   KONTAKT STRANICA - INTERAKTIVNA MAPA
+   ================================================== */
+
+   const contactLocations = [
+    {
+        city: "Beograd",
+        address: "Bulevar kralja Aleksandra 100, Beograd",
+        lat: 44.8055,
+        lng: 20.4751
+    },
+    {
+        city: "Novi Sad",
+        address: "Bulevar oslobođenja 30, Novi Sad",
+        lat: 45.2517,
+        lng: 19.8335
+    },
+    {
+        city: "Niš",
+        address: "Obrenovićeva 12, Niš",
+        lat: 43.3192,
+        lng: 21.8958
+    }
+];
+
+let contactMap = null;
+let contactMarkers = [];
+
+function initializeContactMap() {
+
+    const mapElement = document.getElementById("contactMap");
+
+    if (!mapElement || typeof L === "undefined" || contactMap) {
+        return;
+    }
+
+    contactMap = L.map("contactMap").setView(
+        [contactLocations[0].lat, contactLocations[0].lng],
+        15
+    );
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }
+    ).addTo(contactMap);
+
+    contactLocations.forEach((location, index) => {
+
+        const marker = L.marker([
+            location.lat,
+            location.lng
+        ]).addTo(contactMap);
+
+        marker.bindPopup(
+            `<b>${location.city}</b><br>${location.address}`
+        );
+
+        marker.on("click", function() {
+            selectContactLocation(index, false);
+        });
+
+        contactMarkers.push(marker);
+
+    });
+
+    contactMarkers[0].openPopup();
+}
+
+
+// IZBOR POSLOVNICE
+
+function selectContactLocation(index, moveMap = true) {
+
+    const location = contactLocations[index];
+
+    if (!location) return;
+
+    document.querySelectorAll(".contact-location-item")
+        .forEach(item => item.classList.remove("active"));
+
+    document.querySelectorAll(".contact-location-item")[index]
+        .classList.add("active");
+
+    document.getElementById("contactAddress").textContent =
+        location.address;
+
+    document.getElementById("contactDirections").href =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(location.address + ", Srbija");
+
+    if (!contactMap) return;
+
+    if (moveMap) {
+        contactMap.flyTo(
+            [location.lat, location.lng],
+            15,
+            { duration: 1.2 }
+        );
+    }
+
+    contactMarkers[index].openPopup();
+}
+
+
+// POKRETANJE MAPE
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeContactMap
+    );
+
+} else {
+
+    initializeContactMap();
+
+}
+
+
+// KONTAKT FORMA
+
+const contactForm = document.getElementById("contactMessageForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert("Hvala na poruci! Uspešno ste popunili kontakt formu.");
+
+        contactForm.reset();
+
+    });
+
+}
