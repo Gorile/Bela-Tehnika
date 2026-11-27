@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Kontakt</title>
+</head>
+<body>
+    
+      <!-- NAVIGACIJSKA TRAKA -->
+      <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="logo">BelaTehnika</a>
+
+            <!-- Hamburger dugme za mobilne uređaje -->
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Meni">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Glavni meni sa linkovima -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <!-- Dropdown Kategorije -->
+                    <li class="dropdown">
+                        <button class="dropdown-btn" id="categoriesBtn">
+                            Kategorije <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="dropdownMenu">
+                            <a href="#">Frižideri</a>
+                            <a href="#">Zamrzivači</a>
+                            <a href="#">Šporeti</a>
+                            <a href="#">Aspiratori</a>
+                            <a href="#">Mašine za pranje veša</a>
+                            <a href="#">Mašine za sušenje veša</a>
+                            <a href="#">Kombinovane mašine</a>
+                            <a href="#">Klima uređaji</a>
+                            <a href="#">Pokretne klime</a>
+                            <a href="#">Radijatori i konvektori</a>
+                            <a href="#">Bojleri</a>
+                            <a href="#">Mali kućni aparati</a>
+                        </div>
+                    </li>
+
+                    <li><a href="./index.html">Početna</a></li>
+                    <li><a href="#">Top sellers</a></li>
+                    <li><a href="#">Svi proizvodi</a></li>
+                    <li><a href="#" id="cartBtn">Korpa</a></li>
+                    <li><a href="#" id="loginBtn">Prijava</a></li>
+                </ul>
+
+                <!-- Pretraga unutar menija -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Pretraži...">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MODAL ZA KORPU -->
+    <div class="modal" id="cartModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-btn" id="closeCart">&times;</button>
+            <div class="modal-header">
+                <div class="cart-icon-title">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>BelaTehnika</span>
+                </div>
+                <h2>Vaša korpa</h2>
+            </div>
+            <div class="modal-body empty-cart">
+                <p class="empty-title">Korpa je prazna</p>
+                <p class="empty-text">Dodajte proizvode u korpu i oni će se pojaviti ovde.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-full" id="continueShopping">Nastavi kupovinu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ZA PRIJAVU I REGISTRACIJU -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content" id="authModalContent">
+            <button class="close-btn" id="closeLogin">&times;</button>
+
+            <!-- FORMA ZA PRIJAVU -->
+            <div id="loginView">
+                <div class="modal-header auth-header">
+                    <span class="brand-subtext">BelaTehnika</span>
+                    <h2>Prijavite se</h2>
+                    <p class="sub-heading">Unesite svoje podatke za pristup nalogu.</p>
+                </div>
+                <form class="modal-body form-group" id="loginForm">
+                    <div class="input-field">
+                        <label for="email">Email adresa</label>
+                        <input type="email" id="email" placeholder="me@primer.com" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="password">Lozinka</label>
+                        <input type="password" id="password" placeholder="Unesite lozinku" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full margin-top">Prijava</button>
+                </form>
+                <p class="auth-switch">
+                    Nemate nalog? <a href="#" id="switchToRegister">Kreiraj nalog</a>
+                </p>
+            </div>
+
+            <!-- FORMA ZA REGISTRACIJU -->
+            <div id="registerView" class="hidden">
+                <div class="modal-header auth-header">
+                    <span class="brand-subtext">BelaTehnika</span>
+                    <h2>Kreirajte nalog</h2>
+                    <p class="sub-heading">Unesite svoje podatke za registraciju.</p>
+                </div>
+                <form class="modal-body form-group" id="registerForm">
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regFirstName">Ime</label>
+                            <input type="text" id="regFirstName" placeholder="Unesite ime" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regLastName">Prezime</label>
+                            <input type="text" id="regLastName" placeholder="Unesite prezime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regUsername">Korisničko ime</label>
+                            <input type="text" id="regUsername" placeholder="Izaberite korisničko ime" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regEmail">Email adresa</label>
+                            <input type="email" id="regEmail" placeholder="ime@primer.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-field">
+                            <label for="regPassword">Šifra</label>
+                            <input type="password" id="regPassword" placeholder="Unesite šifru" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="regConfirmPassword">Potvrdite šifru</label>
+                            <input type="password" id="regConfirmPassword" placeholder="Ponovite šifru" required>
+                        </div>
+                    </div>
+
+                    <p class="form-error" id="registerError"></p>
+
+                    <button type="submit" class="btn btn-primary btn-full margin-top">Kreiraj nalog</button>
+                </form>
+                <p class="auth-switch">
+                    Već imate nalog? <a href="#" id="switchToLogin">Prijavite se</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <main class="contact-page">
+
+        <!-- HERO -->
+        <section class="contact-hero">
+            <div class="contact-container">
+                <span>TU SMO ZA VAS</span>
+                <h1>Kontaktirajte BelaTehniku</h1>
+                <p>
+                    Posetite jednu od naših radnji ili nam pošaljite poruku.
+                    Naš tim će vam pomoći oko izbora proizvoda,
+                    dostupnosti i dostave.
+                </p>
+            </div>
+        </section>
+    
+        <!-- LOKACIJE I MAPA -->
+        <section class="contact-locations">
+            <div class="contact-container">
+    
+                <div class="contact-location-layout">
+    
+                    <div class="contact-location-list">
+    
+                        <div class="contact-list-heading">
+                            <span>Lokacije</span>
+                            <h2>Izaberite radnju</h2>
+                            <p>Kliknite na grad da biste prikazali lokaciju na mapi.</p>
+                        </div>
+    
+                        <div class="contact-location-item active" onclick="selectContactLocation(0)">
+                            <div>
+                                <h3>Beograd</h3>
+                                <p>Bulevar kralja Aleksandra 100, Beograd</p>
+                            </div>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+    
+                        <div class="contact-location-item" onclick="selectContactLocation(1)">
+                            <div>
+                                <h3>Novi Sad</h3>
+                                <p>Bulevar oslobođenja 30, Novi Sad</p>
+                            </div>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+    
+                        <div class="contact-location-item" onclick="selectContactLocation(2)">
+                            <div>
+                                <h3>Niš</h3>
+                                <p>Obrenovićeva 12, Niš</p>
+                            </div>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+    
+                    </div>
+    
+                    <div class="contact-map-wrapper">
+    
+                        <div id="contactMap"></div>
+    
+                        <div class="contact-map-details">
+    
+                            <div>
+                                <span>ADRESA</span>
+                                <p id="contactAddress">
+                                    Bulevar kralja Aleksandra 100, Beograd
+                                </p>
+                            </div>
+    
+                            <div>
+                                <span>TELEFON</span>
+                                <p>011 123 45 67</p>
+                            </div>
+    
+                            <div>
+                                <span>RADNO VREME</span>
+                                <p>Pon–Pet: 09–20h · Sub: 09–16h</p>
+                            </div>
+    
+                            <div>
+                                <span>INFORMACIJE O RADNJI</span>
+                                <p>Veliki izbor bele tehnike i malih kućnih aparata.</p>
+                            </div>
+    
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bulevar+kralja+Aleksandra+100+Beograd"
+                               target="_blank"
+                               id="contactDirections">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                Otvori u Google Maps
+                            </a>
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    
+        <!-- INFORMACIJE -->
+        <section class="contact-information">
+            <div class="contact-container">
+    
+                <span class="contact-section-label">Informacije o radnjama</span>
+    
+                <h2>Sve što vam je potrebno na jednom mestu</h2>
+    
+                <p class="contact-information-intro">
+                    U našim radnjama možete pogledati izložene uređaje,
+                    proveriti dostupnost željenog modela i dobiti stručnu
+                    preporuku našeg prodajnog tima. Pomoći ćemo vam da
+                    odaberete uređaj koji odgovara vašem prostoru,
+                    potrebama i budžetu.
+                </p>
+    
+                <div class="contact-cards">
+    
+                    <div class="contact-card">
+                        <span>KUPOVINA U RADNJI</span>
+                        <h3>Stručna pomoć pri izboru</h3>
+                        <p>
+                            Uporedite modele i njihove karakteristike uz savet
+                            prodavca, kako biste lakše pronašli najbolje
+                            rešenje za svoj dom.
+                        </p>
+                    </div>
+    
+                    <div class="contact-card">
+                        <span>PREUZIMANJE</span>
+                        <h3>Provera dostupnosti</h3>
+                        <p>
+                            Pre dolaska nas pozovite da proverite da li je
+                            proizvod dostupan u izabranoj radnji i
+                            dogovorite termin preuzimanja.
+                        </p>
+                    </div>
+    
+                    <div class="contact-card">
+                        <span>DOSTAVA I PODRŠKA</span>
+                        <h3>Dogovor prema vašim potrebama</h3>
+                        <p>
+                            Informacije o dostavi, rokovima i uslovima
+                            preuzimanja možete dobiti direktno u radnji
+                            ili putem kontakt forme ispod.
+                        </p>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    
+        <!-- KONTAKT FORMA -->
+        <section class="contact-form-section">
+            <div class="contact-container">
+    
+                <div class="contact-form-layout">
+    
+                    <div class="contact-form-description">
+    
+                        <span class="contact-section-label">Pošaljite poruku</span>
+    
+                        <h2>Kako možemo da pomognemo?</h2>
+    
+                        <p>
+                            Popunite kontakt formu i naš tim će vam
+                            odgovoriti u najkraćem mogućem roku.
+                        </p>
+    
+                        <div class="contact-general-box">
+                            <span>Opšti kontakt</span>
+                            <h3>kontakt@belatehnika.rs</h3>
+                            <p>+381 11 123 45 67</p>
+                        </div>
+    
+                    </div>
+    
+                    <form class="contact-message-form" id="contactMessageForm">
+    
+                        <div class="contact-form-row">
+    
+                            <div class="contact-input-group">
+                                <label for="contactEmail">Vaš email</label>
+                                <input type="email"
+                                       id="contactEmail"
+                                       placeholder="ime@primer.com"
+                                       required>
+                            </div>
+    
+                            <div class="contact-input-group">
+                                <label for="contactSubject">Naslov poruke</label>
+                                <input type="text"
+                                       id="contactSubject"
+                                       placeholder="Kako možemo da pomognemo?"
+                                       required>
+                            </div>
+    
+                        </div>
+    
+                        <div class="contact-input-group">
+                            <label for="contactMessage">Tekst poruke</label>
+                            <textarea id="contactMessage"
+                                      placeholder="Napišite poruku..."
+                                      required></textarea>
+                        </div>
+    
+                        <button type="submit" class="contact-submit-btn">
+                            Pošalji poruku
+                        </button>
+    
+                    </form>
+    
+                </div>
+            </div>
+        </section>
+    
+    </main>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+      
+          <div class="footer-brand">
+            <a href="#" class="logo">BelaTehnika</a>
+            <span>Since 2026.</span>
+          </div>
+      
+          <div class="footer-right">
+            <nav class="footer-links">
+              <a href="#">Pravila privatnosti</a>
+              <a href="#">Pravila o reklamaciji</a>
+              <a href="./kontakt.html">Kontakt</a>
+            </nav>
+      
+            <div class="social-links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook">f</a>
+
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X" class="x-icon">𝕏</a>
+            </div>
+          </div>
+      
+        </div>
+    </footer>
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Tvoj JavaScript -->
+<script src="./kontakt.js"></script>
+</body>
+</html>
